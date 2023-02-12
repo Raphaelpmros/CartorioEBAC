@@ -159,54 +159,61 @@ int main()
 {
 	int opcoes=0;//Delcaração de variáveis
 	int loopMenu=1;//Variável de loop do menu
+	char senhaDigitada[10]="a";
+	int retorno;
 	
-	for(loopMenu=1;loopMenu=1;)//Loop do menu
-	{
-		system("cls");//comando para limpar a tela
-		
-		setlocale(LC_ALL, "Portuguese");//definição de idioma
+	printf("#### Bem vindo a consulta de alunos da EBAC ####\n\n");
+	printf("Digite sua senha:");
+	scanf("%s", senhaDigitada);
 	
-		printf("#### Bem vindo à consulta de alunos da EBAC ####\n\n");//inicio do menu
-		printf("\tSelecione a opção desejada no menu\n");
-		printf("\t1- Cadastro de usuário.\n");
-		printf("\t2- Consulta de usuário.\n");
-		printf("\t3- Excluir usuário.\n");
-		printf("\t4- Alteração de cadastro.\n");
-		printf("\t5- Sair do sistema.\n");
-		printf("Opção: ");//final do menu
-		
-		scanf("%d", &opcoes);//recebe opção do usuário
-		
-		system("cls");
-		
-		switch(opcoes)//inicio de seleção de opções
+	retorno = strcmp(senhaDigitada, "admin");
+	
+	if(retorno == 0)
+	{	
+		for(loopMenu=1;loopMenu=1;)//Loop do menu
 		{
-			case 1:
-			cadastro();
-			break;
+			system("cls");//comando para limpar a tela
 			
-			case 2:
-			consulta();
-			break;
+			setlocale(LC_ALL, "Portuguese");//definição de idioma
+		
+			printf("#### Bem vindo à consulta de alunos da EBAC ####\n\n");//inicio do menu
+			printf("\tSelecione a opção desejada no menu\n");
+			printf("\t1- Cadastro de usuário.\n");
+			printf("\t2- Consulta de usuário.\n");
+			printf("\t3- Excluir usuário.\n");
+			printf("\t4- Sair do sistema.\n");
+			printf("Opção: ");//final do menu
 			
-			case 3:
-			excluir();
-			break;
+			scanf("%d", &opcoes);//recebe opção do usuário
 			
-			case 4:
-			printf("Alteração de cadastro\n");
-			system("pause\n");
-			break;
+			system("cls");
 			
-			case 5:
-			printf("Obrigado por utilizar nosso sistema!\n");
-			system("pause");
-			break;
-			
-			default:
-			printf("Opção inválida\n");
-			system("pause");
-			break;
-		}//final da seleção de opções
+			switch(opcoes)//inicio de seleção de opções
+			{
+				case 1:
+				cadastro();
+				break;
+				
+				case 2:
+				consulta();
+				break;
+				
+				case 3:
+				excluir();
+				break;
+				
+				case 4:
+				printf("Obrigado por utilizar nosso sistema!\n");
+				system("pause");
+				break;
+				
+				default:
+				printf("Opção inválida\n");
+				system("pause");
+				break;
+			}//final da seleção de opções
+		}
 	}
+	else
+		printf("senha incorreta");
 }
